@@ -20,7 +20,7 @@
                             <h2 class="card-title">{{ $product->name }}</h2>
                             <div class="row">
                               <div class="col-sm-7">
-                                 <p>{{ $product->stock }} stock(4) available</p>
+                                 <p>{{ $product->stock }} stock(s) available</p>
                               </div>
                               <div class="col-sm-4">
                                  <p class="card-text">{{ $product->sold }} sold</p>
