@@ -22,8 +22,8 @@ Route::get('/categories', function () {
 });
 //Route::get('/categories', [Controller::class, 'showCategories']);
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
+Route::get('/about-us', function () {
+    return view('about-us');
 });
 
 Route::get('/register', function () {

@@ -8,7 +8,7 @@ class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
-     *products : id, category_id (FK), name, price, description, stock, sold
+     *
      * @return void
      */
     public function up()
@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('sold');
             $table->string('image');
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
             $table->timestamps();
         });
     }

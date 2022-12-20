@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Category extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function cart()
+    public function product()
     {
-        $this->hasMany(Cart::class);
+        return $this->hasMany(Product::class);
     }
 }

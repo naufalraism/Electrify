@@ -8,7 +8,7 @@ class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
-     *id, user_id (FK), product_id (FK), quantity
+     *
      * @return void
      */
     public function up()
@@ -19,8 +19,8 @@ class CreateCartsTable extends Migration
             $table->foreignId('product_id');
             $table->integer('quantity');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onUpdate('cascade');
             $table->timestamps();
         });
     }

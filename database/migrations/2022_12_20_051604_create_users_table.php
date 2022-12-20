@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->rememberToken();
 
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade');
             $table->timestamps();
         });
     }
