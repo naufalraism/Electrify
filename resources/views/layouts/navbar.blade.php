@@ -1,5 +1,5 @@
 <div class="navigation-container">
-    <nav class="navbar navbar-expand-lg fixed-top px-8 py-9" style="background-color: #9eff03;">
+    <nav class="navbar navbar-expand-lg fixed-top px-8 py-10" style="background-color: #9eff03;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Electrify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -11,8 +11,22 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="#">All Products</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">Laptop</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="">Smartphone</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="">Headset</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About us</a>
@@ -26,7 +40,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Register</a>
                     </li>
-                    <p>|</p>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">|</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Log in</a>
                     </li>
