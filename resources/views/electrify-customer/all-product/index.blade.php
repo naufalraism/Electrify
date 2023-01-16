@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-lg-3 sidebar-filter">
-                <h3 class="mt-5 mb-5">Showing Products</h3>
+                <h2 class=" fs-3 my-5">Showing Products</h2>
                 <h6 class="text-uppercase">Categories</h6>
                 <div class="filter-checkbox">
                     @foreach ($categories as $category)
@@ -29,8 +29,8 @@
             </div>
 
             <div class="col-md">
-                <div class="container">
-                    <h2>All Product</h2>
+                <div class="container my-5">
+                    <h2 class="fs-3">All Product</h2>
 
                     <div class="row d-flex justify-content-center my-4">
                         @foreach ($products as $product)
