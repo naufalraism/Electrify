@@ -23,15 +23,15 @@
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Laptop</a></li>
+                            <li><a class="dropdown-item" href="{{route('productCategory','1')}}">Laptop</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="{{route('productCategory','2')}}">Smartphone</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Headset</a></li>
+                            <li><a class="dropdown-item" href="{{route('productCategory','3')}}">Headset</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
