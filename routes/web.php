@@ -42,3 +42,7 @@ Route::get('/login', function () {
 Route::fallback(function(){
     return redirect('/');
 });
+
+Route::get('/category/{category}', [\App\Http\Controllers\CategoryController::class, 'viewCategory'])->name('productCategory');
+
+
