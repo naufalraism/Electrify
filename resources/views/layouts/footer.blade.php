@@ -1,5 +1,5 @@
 <footer class="footer text-center">
-    <div class="text-center p-3" style="background-color: #9eff03;">
+    <div class="text-center p-3 bg-dark text-white">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
