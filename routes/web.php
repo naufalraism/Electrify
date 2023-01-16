@@ -20,9 +20,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
-//Route::get('/categories', function () {
-//    return view('categories');
-//});
+Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'viewDetail'])->name('product.view');
+
+Route::get('/categories', function () {
+    return view('categories');
+});
 //Route::get('/categories', [Controller::class, 'showCategories']);
 
 Route::get('/about-us', function () {
@@ -40,4 +42,3 @@ Route::get('/login', function () {
 Route::fallback(function(){
     return redirect('/');
 });
-
