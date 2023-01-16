@@ -57,7 +57,7 @@
 
                                         <div class="mb-2">
                                             {{-- {{ route('product.view', $product->id) }} --}}
-                                            <a href="" class="btn btn-primary px-4">
+                                            <a href="{{ route('product.view', $product->id) }}" class="btn btn-primary px-4">
                                                 Detail
                                             </a>
                                         </div>

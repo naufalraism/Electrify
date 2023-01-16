@@ -20,6 +20,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 
+Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'viewDetail'])->name('product.view');
+
 Route::get('/categories', function () {
     return view('categories');
 });

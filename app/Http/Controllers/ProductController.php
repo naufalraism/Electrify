@@ -15,4 +15,9 @@ class ProductController extends Controller
 
         return view('electrify-customer.all-product.index', compact('products', 'categories'));
     }
+
+    public function viewDetail($id) {
+        $product = Product::find($id);
+        return view('electrify-customer.all-product.product-details', ['product'=> $product]);
+    }
 }
