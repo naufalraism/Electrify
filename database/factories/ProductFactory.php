@@ -22,7 +22,7 @@ class ProductFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'category_id' => random_int(1,5),
+            'category_id' => random_int(1,3),
             'price' => random_int(2000000, 5000000),
             'description' => $this->faker->paragraph(),
             'stock' => random_int(1,50),
