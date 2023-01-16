@@ -44,14 +44,14 @@
                 </form>
                 <ul class="navbar-nav me-right mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">|</a>
+                        <div class="nav-link">|</div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log in</a>
+                        <a class="nav-link" href="{{ route('login') }}">Log in</a>
                     </li>
                 </ul>
             </div>
