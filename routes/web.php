@@ -21,18 +21,14 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
 Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
 
-Route::get('/about-us', function () {
-    return view('about-us');
-});
+// Route::get('/about-us', function () {
+//     return view('about-us');
+// });
 
 Route::middleware('guest')->group(function () {
     Route::get('/login',[LoginController::class, 'index'])->name('login');

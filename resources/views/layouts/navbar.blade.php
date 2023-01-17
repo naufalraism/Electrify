@@ -28,17 +28,18 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('productCategory', '2') }}">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productCategory', '2') }}">Tablet</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('productCategory', '3') }}">Headset</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productCategory', '3') }}">Mouse</a></li>
                         </ul>
                     </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="#">About us</a>
                     </li> --}}
                 </ul>
+
                 <form action="{{ route('product.search') }}" class="d-flex" role="search" method="GET">
                     @csrf
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
