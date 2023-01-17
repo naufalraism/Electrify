@@ -2,35 +2,28 @@
 @section('title', 'Electrify')
 
 @section('content')
-
     <div class="container d-flex justify-content-center align-items-center">
-        <div>
-            <h1>
-                {{$product->name}}
-            </h1>
-            <div class="w-100">
-                <div class="mb-3 d-flex align-items-center justify-content-center">
-                    <img src="{{ asset($product->image) }}" alt="" class="w-50" >
+            <div class="row" style="margin-top: 100px; margin-bottom: 50px">
+                <div class="col">
+                    <img src="{{ asset($product->image) }}" class="rounded float-end" alt="product.jpg">
                 </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="description" aria-describedby="emailHelp" name="description"
-                           disabled value="{{$product->description}}">
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="price" name="price" value="{{$product->price}}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Stock</label>
-                    <input type="number" class="form-control" id="price" name="price" value="{{$product->stock}}" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="stock" class="form-label">Category</label>
-                    <input type="text" class="form-control" id="stock" name="stock" value="{{$product->category->name}}" disabled>
+                <div class="col">
+                    <h1 class="text-start"><b>{{$product->name}}</b></h6>
+                        <h6>Rp. {{$product->price}}</h6>
+                    <p class="text-start"><b>DESCRIPTION</b> <br> {{$product->description}}</p>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p><b>Stock</b></p>
+                            <p>{{$product->stock}}</p>
+                        </div>
+                        <div class="col-sm">
+                            <p><b>Category</b></p>
+                            <p>{{$product->category->name}}</p>
+                        </div>
+                    </div>
+                        <a href="{{ route('product.index') }}" class="btn btn-primary px-4"> Back </a>
                 </div>
             </div>
-        </div>
-    </div>
 
+    </div>
 @endsection
