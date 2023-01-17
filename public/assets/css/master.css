@@ -33,3 +33,8 @@
 .filter-checkbox {
    padding: 0.5em 0 0.5em 1em;
 }
+
+label.required::after {
+   content: "*";
+   color: #E74A3B;
+}

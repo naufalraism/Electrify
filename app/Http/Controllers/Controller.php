@@ -15,9 +15,7 @@ class Controller extends BaseController
     public function showCategories(){
         $categoriesData = Category::all();
 
-        return view('categories', [
-            'Categories_data' => $categoriesData
-        ]);
+        return view('categories', ['Categories_data' => $categoriesData]);
     }
 
 }

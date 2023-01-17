@@ -13,47 +13,73 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('product.index') ? 'active' : '' }}" href="{{ route('product.index') }}">All Products</a>
+                        <a class="nav-link {{ Route::is('product.index') ? 'active' : '' }}"
+                            href="{{ route('product.index') }}">All Products</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link {{ Route::is('category') ? 'active' : '' }}
+                        <a class="nav-link 
                             dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Laptop</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productCategory', '1') }}">Laptop</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Smartphone</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productCategory', '2') }}">Tablet</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Headset</a></li>
+                            <li><a class="dropdown-item" href="{{ route('productCategory', '3') }}">Mouse</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="#">About us</a>
-                    </li>
+                    </li> --}}
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+                <form action="{{ route('product.search') }}" class="d-flex" role="search" method="GET">
+                    @csrf
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        name="search_input" style="width:500px !important;">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <ul class="navbar-nav me-right mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">|</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Log in</a>
-                    </li>
-                </ul>
+                @auth
+                    <ul class="navbar-nav me-right mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link 
+                                dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ auth()->user()->name }}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="">Edit Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                @else
+                    <ul class="navbar-nav me-right mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::is('register.index') ? 'active' : '' }}"
+                                href="{{ route('register.index') }}">Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="nav-link">|</div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Route::is('login') ? 'active' : '' }}"
+                                href="{{ route('login') }}">Log in</a>
+                        </li>
+                    </ul>
+                @endauth
             </div>
         </div>
     </nav>

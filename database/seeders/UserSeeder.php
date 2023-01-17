@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
             'name' => 'Sheila Curtis',
             'email' => 'testing@email.com',
             'password' => 'password',
-            'address' => 'Jalan Manggis No. 6'
+            'address' => 'Jalan Manggis No. 6',
+            'gender' => 'F'
         ]);
     }
 }

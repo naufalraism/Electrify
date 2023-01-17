@@ -14,6 +14,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory(5)->create();
+        Category::query()->insert(
+            [
+                [
+                    "id" => 1,
+                    "name" => "Laptop"
+
+                ],
+                [
+                    "id" => 2,
+                    "name" => "Tablet"
+                ],
+                [
+                    "id" => 3,
+                    "name" => "Mouse"
+                ]
+            ]
+        );
     }
 }

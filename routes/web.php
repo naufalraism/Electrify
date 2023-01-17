@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,26 +22,28 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
-Route::get('/product/{id}', [\App\Http\Controllers\ProductController::class, 'viewDetail'])->name('product.view');
 
-Route::get('/categories', function () {
-    return view('categories');
+// Route::get('/about-us', function () {
+//     return view('about-us');
+// });
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login',[LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+
+    Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+    Route::post('register', [RegisterController::class, 'store'])->name('register.store');
 });
-//Route::get('/categories', [Controller::class, 'showCategories']);
 
-Route::get('/about-us', function () {
-    return view('about-us');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/login', function () {
-    return view('login');
+Route::middleware('auth')->group(function() {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::fallback(function(){
     return redirect('/');
 });
+
+Route::get('/category/{category}', [CategoryController::class, 'viewCategory'])->name('productCategory');
