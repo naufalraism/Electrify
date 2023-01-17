@@ -17,7 +17,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link {{ Route::is('category') ? 'active' : '' }}
+                        <a class="nav-link 
                             dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
@@ -44,14 +44,14 @@
                 </form>
                 <ul class="navbar-nav me-right mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link {{ Route::is('register.index') ? 'active' : '' }}" href="{{ route('register.index') }}">Register</a>
                     </li>
 
                     <li class="nav-item">
                         <div class="nav-link">|</div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                        <a class="nav-link {{ Route::is('login.index') ? 'active' : '' }}" href="{{ route('login.index') }}">Log in</a>
                     </li>
                 </ul>
             </div>

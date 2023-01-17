@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-lg-3 sidebar-filter">
+            {{-- <div class="col-md-4 col-lg-3 sidebar-filter">
                 <h2 class=" fs-3 my-5">Showing Products</h2>
                 <h6 class="text-uppercase">Categories</h6>
                 <div class="filter-checkbox">
@@ -17,16 +17,8 @@
                     @endforeach
                 </div>
 
-                <div class="my-3">
-                    <h6 class="text-uppercase justify-content-between">Price</h6>
-                    <div class="price-filter">
-                        <input type="text" class="form-control" id="price-min">
-                        <input type="text" class="form-control" id="price-max">
-                    </div>
-                </div>
-
                 <a href="#" class="btn btn-lg btn-full-width btn-primary mt-4">Update Results</a>
-            </div>
+            </div> --}}
 
             <div class="col-md">
                 <div class="container my-5">
@@ -56,7 +48,6 @@
                                         </div>
 
                                         <div class="mb-2">
-                                            {{-- {{ route('product.view', $product->id) }} --}}
                                             <a href="{{ route('product.view', $product->id) }}" class="btn btn-primary px-4">
                                                 Detail
                                             </a>
