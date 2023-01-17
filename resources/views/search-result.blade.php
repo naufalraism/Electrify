@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="container my-5">
-                @if ($productResults->count() == 0)
+                @if ($foundProduct->count() == 0)
                     <div class="alert alert-warning">
                         There is no matched product
                     </div>
@@ -50,7 +50,7 @@
                         There is no matched product
                     </div>
                     <div class="row d-flex justify-content-center my-4">
-                        @foreach ($productResults as $product)
+                        @foreach ($foundProduct as $product)
                             <div class="col-sm-3 mb-4">
                                 <div class="card" style="height: 400px">
                                     <div class="w-100" style="height: 250px">
@@ -84,7 +84,7 @@
                             </div>
                         @endforeach
                     </div>
-                    {{ $productResults->links() }}
+                    {{ $foundProduct->links() }}
                 @endif
             </div>
         </div>

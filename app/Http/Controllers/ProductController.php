@@ -17,15 +17,15 @@ class ProductController extends Controller
     }
 
     public function viewDetail($id) {
-        $product = Product::find($id);
-        return view('electrify-customer.all-product.product-details', ['product'=> $product]);
+        $products = Product::find($id);
+        return view('electrify-customer.all-product.product-details', ['product'=> $products]);
     }
 
     public function search(Request $request){
-        dd('here');
-        $foundProduct = Product::where('name', 'like', '%'. $request->search_input . '%')->paginate(6)->withQueryString();
+
+        $foundProduct = Product::where('name', 'like', '%'. $request->input('search_input') . '%')->paginate(6)->withQueryString();
         $allProducts = Product::all();
 
-        return view('search-result', compact('productResults', 'products'));
+        return view('search-result', compact('foundProduct', 'allProducts'));
     }
 }

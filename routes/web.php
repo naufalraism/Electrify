@@ -23,7 +23,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
-Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+Route::get('/search-result', [ProductController::class, 'search'])->name('product.search');
 
 
 // Route::get('/about-us', function () {

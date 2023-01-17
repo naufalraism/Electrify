@@ -18,7 +18,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link 
+                        <a class="nav-link
                             dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
@@ -40,7 +40,7 @@
                     </li> --}}
                 </ul>
 
-                <form action="{{ route('product.search') }}" class="d-flex" role="search" method="GET">
+                <form action="{{ route('product.search', $product->name) }}" class="d-flex" role="search" method="GET">
                     @csrf
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                         name="search_input" style="width:500px !important;">
@@ -50,7 +50,7 @@
                 @auth
                     <ul class="navbar-nav me-right mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link 
+                            <a class="nav-link
                                 dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ auth()->user()->name }}
