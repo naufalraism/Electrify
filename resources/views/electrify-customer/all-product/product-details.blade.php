@@ -24,5 +24,6 @@
                         <a href="{{ route('product.index') }}" class="btn btn-primary px-4"> Back </a>
                 </div>
             </div>
+
     </div>
 @endsection
