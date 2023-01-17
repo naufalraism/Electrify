@@ -23,11 +23,11 @@ class CategorySeeder extends Seeder
                 ],
                 [
                     "id" => 2,
-                    "name" => "Smartphone"
+                    "name" => "Tablet"
                 ],
                 [
                     "id" => 3,
-                    "name" => "Headset"
+                    "name" => "Mouse"
                 ]
             ]
         );
