@@ -26,26 +26,25 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-
 Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
 
 
 Route::get('/about-us', function () {
     return view('about-us');
 });
 
-Route::prefix('/register')->controller(RegisterController::class)->name('login.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::post('/', 'login')->name('do-login');
-});
-
-// Route::middleware(])->group(function () {
-    Route::get('/login',[LoginController::class, 'index'])->name('login.index');
+Route::middleware('guest')->group(function () {
+    Route::get('/login',[LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.authenticate');
 
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
     Route::post('register', [RegisterController::class, 'store'])->name('register.store');
-// });
+});
+
+Route::middleware('auth')->group(function() {
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
 Route::fallback(function(){
     return redirect('/');

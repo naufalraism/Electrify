@@ -20,4 +20,12 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('electrify-customer.all-product.product-details', ['product'=> $product]);
     }
+
+    public function search(Request $request){
+        dd('here');
+        $foundProduct = Product::where('name', 'like', '%'. $request->search_input . '%')->paginate(6)->withQueryString();
+        $allProducts = Product::all();
+
+        return view('search-result', compact('productResults', 'products'));
+    }
 }

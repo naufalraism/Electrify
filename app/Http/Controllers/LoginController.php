@@ -20,16 +20,13 @@ class LoginController extends Controller
          'password' => 'required|string|min:8'
       ]);
 
-      $user = User::where('email', $request->email)->first();
+      if (Auth::attempt($credentials)) {
+         $request->session()->regenerate();
 
-      if (@$user) {
-         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->indented(route('home'));
-         }
+         $request->session()->flash('success', 'Login successfull!');
+         return redirect()->intended(route('home'));
       }
-      
+
       return back()->with('loginError', 'Login Failed');
    }
 
@@ -47,6 +44,6 @@ class LoginController extends Controller
 
       Auth::logout();
 
-      return route('login');
+      return redirect()->route('login');
    }
 }

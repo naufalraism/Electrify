@@ -41,6 +41,6 @@ class RegisterController extends Controller
       DB::commit();
 
       $request->session()->flash('success', 'Registration successfull! Please login!');
-      return redirect()->route('login.index');
+      return redirect()->route('login');
    }
 }

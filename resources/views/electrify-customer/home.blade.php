@@ -3,6 +3,13 @@
 
 @section('content')
     <div class="container">
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissable fade show" role="alert">
+               {{ session('success') }}
+               <button type="button" class="btn-close text-end" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+        
         <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"
