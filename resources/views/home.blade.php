@@ -33,7 +33,10 @@
             </button>
         </div>
 
-        <h2>Recommendation</h2>
+        <div class="mt-5 d-flex justify-content-between">
+            <h2>Recommendation</h2>
+            <a href="{{ route('product.index') }}" class="fs-5">show all</a>
+        </div>
         <div class="row d-flex justify-content-center my-4">
             @foreach ($products as $product)
                 <div class="col-sm-3 mb-4">
