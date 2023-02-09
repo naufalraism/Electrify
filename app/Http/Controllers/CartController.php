@@ -26,7 +26,6 @@ class CartController extends Controller
 
    public function addToCart(Request $request, Product $product)
    {
-
       $request->validate([
          'quantity' => 'required | min :1|max:' . $product->stock
       ]);
@@ -39,7 +38,7 @@ class CartController extends Controller
             $newCart = Cart::find($cart->id);
             $newCart->quantity = $cart->quantity + $request->input('quantity');
             $newCart->save();
-            return redirect()->route('product.index');
+            return redirect()->route('cartPage')->with('success-swal', 'Product has been added to cart!');
          }
       }
       if ($count == 0) {
