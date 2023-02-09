@@ -57,6 +57,18 @@
             </div>
 
             <div class="form-group mb-3 row">
+               <label for="address" class="form-label required">Address</label>
+               <div>
+                  <textarea name="address" id="address" rows="3" class="form-control">{{ old('address') }}</textarea>
+                  @error('address')
+                     <span class="invalid-feedback" role="alert">
+                        {{ $message }}
+                     </span>
+                  @enderror
+               </div>
+            </div>
+
+            <div class="form-group mb-3 row">
                <label for="email" class="form-label required">Email</label>
                <div>
                   <input type="text" name="email" id="email"
@@ -69,18 +81,6 @@
                <div>
                   <input type="password" name="password" id="password"
                      class="form-control">
-               </div>
-            </div>
-
-            <div class="form-group mb-3 row">
-               <label for="address" class="form-label required">Address</label>
-               <div>
-                  <textarea name="address" id="address" rows="3" class="form-control">{{ old('address') }}</textarea>
-                  @error('address')
-                     <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                     </span>
-                  @enderror
                </div>
             </div>
 

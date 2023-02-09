@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -38,6 +39,11 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+   Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function() {
+      Route::get('/', 'edit')->name('edit');
+      Route::patch('/{user}', 'update')->name('update');
+   });
 });
 
 Route::fallback(function () {
