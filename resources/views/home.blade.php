@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container">
-        <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselAutoplaying" class="carousel slide mb-5" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -33,39 +33,26 @@
             </button>
         </div>
 
-        <h2>Recommendation</h2>
-        <div class="row d-flex justify-content-center my-4">
+        <h2 class="fw-bold fs-3">Recommendation</h2>
+        <div class="grid-layout-5 gap-2 mb-5">
             @foreach ($products as $product)
-                <div class="col-sm-3 mb-4">
-                    <div class="card" style="height: 500px">
-                        <div class="w-100" style="height: 300px">
-                            <img src="{{ asset($product->image) }}" class="img-fluid w-100" style="height: 200px;"
-                                alt="">
-                        </div>
-
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <h2 class="card-title fs-4">{{ $product->name }}</h2>
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <p>{{ $product->stock }} stock(s) available</p>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <p class="card-text">{{ $product->sold }} sold</p>
-                                    </div>
-                                    <h3 class="fs-6">Rp. {{ $product->price }}</h3>
-                                </div>
+                <a href="{{ route('product.view', $product->id) }}" class="text-dark text-decoration-none card"
+                    style="min-height: 350px">
+                    <img src="{{ asset($product->image) }}" class="img-fluid w-100 border-bottom my-5" style="height:200px"
+                        alt="">
+                    <div class="card-body p-3">
+                        <div class="mb-3">
+                            <h2 class="card-title fs-5" style="font-weight: 400">{{ $product->name }}</h2>
+                            <h3 class="fs-5" style="font-weight: 500;">Rp.
+                                {{ number_format($product->price, 0, ',', '.') }}</h3>
+                            <div class="d-flex align-items-center gap-1 mb-1">
+                                <i class="fas fa-cubes"></i>
+                                <p class="m-0">{{ $product->stock }} stock(s) available</p>
                             </div>
-
-                            <div class="mb-2">
-                                {{-- {{ route('product.view', $product->id) }} --}}
-                                <a href="{{ route('product.view', $product->id) }}" class="btn btn-primary px-4">
-                                    Detail
-                                </a>
-                            </div>
+                            <p class="card-text text-muted">{{ $product->sold }} sold</p>
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
         {{ $products->links() }}

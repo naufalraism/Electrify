@@ -2,18 +2,18 @@
 @section('title', 'Categories')
 
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="d-flex align-items-center justify-content-left my-4 w-100">
             <h1 class="fw-bold fs-3 mb-0"> Now Showing : {{ $category->name }}</h1>
         </div>
 
-        <div class="row d-flex justify-content-center mb-4">
+        <div class="row  mb-4">
             @foreach ($productCategory as $product)
                 <div class="col-sm-3 mb-4">
                     <div class="card" style="height: 500px">
                         <div class="w-100" style="height: 300px">
                             <img src="{{ asset($product->image) }}" class="img-fluid w-100" style="height: 200px;"
-                                 alt="">
+                                alt="">
                         </div>
 
                         <div class="card-body">
@@ -41,6 +41,6 @@
                 </div>
             @endforeach
         </div>
-    {{ $productCategory->links() }}
+        {{ $productCategory->links() }}
     </div>
 @endsection

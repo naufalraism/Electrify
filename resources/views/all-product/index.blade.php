@@ -24,7 +24,7 @@
                 <div class="container my-5">
                     <h2 class="fs-3">All Product</h2>
 
-                    <div class="row d-flex justify-content-center my-4">
+                    <div class="row my-4">
                         @foreach ($products as $product)
                             <div class="col-sm-3 mb-4">
                                 <div class="card" style="height: 400px">
@@ -48,7 +48,8 @@
                                         </div>
 
                                         <div class="mb-2">
-                                            <a href="{{ route('product.view', $product->id) }}" class="btn btn-primary px-4">
+                                            <a href="{{ route('product.view', $product->id) }}"
+                                                class="btn btn-primary px-4">
                                                 Detail
                                             </a>
                                         </div>

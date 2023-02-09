@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        $products = Product::paginate(4);
+   public function index()
+   {
+      $products = Product::paginate(18);
 
-        return view('home', compact('products'));
-    }
+      return view('home', compact('products'));
+   }
 }

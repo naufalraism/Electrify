@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+   font-family: 'Rubik', sans-serif;
+}
+
 .slider,
 .slider-track {
    width: 100% !important;
@@ -37,4 +43,10 @@
 label.required::after {
    content: "*";
    color: #E74A3B;
+}
+
+.grid-layout-5 {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   column-gap: 10px;
 }
