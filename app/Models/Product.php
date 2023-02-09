@@ -11,7 +11,7 @@ class Product extends Model
    use HasFactory, SoftDeletes;
 
    protected $guarded = ['id'];
-   public $timestamps = ['deleted_at'];
+   protected $dates = ['deleted_at'];
 
    public function category()
    {

@@ -21,14 +21,12 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index'])->name('product.index');
-Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
-Route::get('/search-result', [ProductController::class, 'search'])->name('product.search');
-Route::get('/category/{category}', [ProductController::class, 'searchByCategory'])->name('product.category');
-
-// Route::get('/about-us', function () {
-//     return view('about-us');
-// });
+Route::controller(ProductController::class)->name('product.')->group(function() {
+   Route::get('/','index')->name('index');
+   Route::get('/product/{id}','viewDetail')->name('view');
+   Route::get('/search-result','search')->name('search');
+   Route::get('/category/{category}','searchByCategory')->name('category');
+});
 
 Route::middleware('guest')->group(function () {
    Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -46,7 +44,7 @@ Route::middleware('auth')->group(function () {
       Route::patch('/{user}', 'update')->name('update');
    });
 
-   Route::controller(AdminProductController::class)->prefix('admin')->name('admin.product.')->group(function () {
+   Route::middleware('role:admin')->controller(AdminProductController::class)->prefix('admin')->name('admin.product.')->group(function () {
       Route::get('/', 'index')->name('index');
       Route::get('/create', 'create')->name('create');
       Route::post('/store', 'store')->name('store');
@@ -55,7 +53,6 @@ Route::middleware('auth')->group(function () {
       Route::get('/edit/{product}', 'edit')->name('edit');
    });
 });
-
 
 Route::fallback(function () {
    return redirect('/');
