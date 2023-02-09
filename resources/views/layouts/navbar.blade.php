@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg fixed-top px-8 py-10" style="background-color: #D0EA2C;">
    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ route('product.index') }}">Electrify</a>
+      <a href="{{ route('product.index') }}" class="text-decoration-none text-dark d-flex align-items-center me-5">
+         <span class="display-6 fw-bold">Electrify</span>
+         <img src="{{ asset('images/asset/pikachu-pokemon-unscreen.gif') }}" width="50px" height="50px" />
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>

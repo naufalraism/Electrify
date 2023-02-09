@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -40,11 +41,21 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-   Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function() {
+   Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function () {
       Route::get('/', 'edit')->name('edit');
       Route::patch('/{user}', 'update')->name('update');
    });
+
+   Route::controller(AdminProductController::class)->prefix('admin')->name('admin.product.')->group(function () {
+      Route::get('/', 'index')->name('index');
+      Route::get('/create', 'create')->name('create');
+      Route::post('/store', 'store')->name('store');
+      Route::delete('/destroy', 'destroy')->name('destroy');
+      Route::put('/update/{product}', 'update')->name('update');
+      Route::get('/edit/{product}', 'edit')->name('edit');
+   });
 });
+
 
 Route::fallback(function () {
    return redirect('/');

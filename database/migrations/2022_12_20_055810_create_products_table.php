@@ -6,35 +6,36 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('category_id');
-            $table->integer('price');
-            $table->text('description');
-            $table->integer('stock');
-            $table->integer('sold');
-            $table->string('image');
+   /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+   public function up()
+   {
+      Schema::create('products', function (Blueprint $table) {
+         $table->id();
+         $table->string('name');
+         $table->foreignId('category_id');
+         $table->integer('price');
+         $table->text('description');
+         $table->integer('stock');
+         $table->integer('sold');
+         $table->string('image');
 
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
-            $table->timestamps();
-        });
-    }
+         $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade');
+         $table->timestamps();
+         $table->softDeletes();
+      });
+   }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('products');
-    }
+   /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+   public function down()
+   {
+      Schema::dropIfExists('products');
+   }
 }
