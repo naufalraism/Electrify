@@ -66,46 +66,15 @@
                      href="{{ route('register.index') }}">Register</a>
                </li>
 
-               <form action="{{ route('product.search', @$product->name) }}" class="d-flex" role="search" method="GET">
-                  @csrf
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                     name="search_input" style="width:500px !important;">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-               </form>
-
-               @auth
-                  <ul class="navbar-nav me-right mb-2 mb-lg-0">
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                           {{ auth()->user()->name }}
-                        </a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="">Edit Profile</a></li>
-                           <li>
-                              <hr class="dropdown-divider">
-                           </li>
-                           <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
-                        </ul>
-                     </li>
-                  </ul>
-               @else
-                  <ul class="navbar-nav me-right mb-2 mb-lg-0">
-                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('register.index') ? 'active' : '' }}"
-                           href="{{ route('register.index') }}">Register</a>
-                     </li>
-
-                     <li class="nav-item">
-                        <div class="nav-link">|</div>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('login') ? 'active' : '' }}" href="{{ route('login') }}">Log
-                           in</a>
-                     </li>
-                  </ul>
-               @endauth
-         </div>
+               <li class="nav-item">
+                  <div class="nav-link">|</div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link {{ Route::is('login') ? 'active' : '' }}" href="{{ route('login') }}">Log
+                     in</a>
+               </li>
+            </ul>
+         @endauth
       </div>
-      </div>
-   </nav>
+   </div>
+</nav>
