@@ -32,9 +32,6 @@
                      @endforeach
                   </ul>
                </li>
-               {{-- <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
-                    </li> --}}
             </ul>
 
             <form action="{{ route('product.search', @$product->name) }}" class="d-flex" role="search" method="GET">
