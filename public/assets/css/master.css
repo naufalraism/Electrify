@@ -50,3 +50,7 @@ label.required::after {
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
    column-gap: 10px;
 }
+
+li {
+   list-style-type: none;
+}

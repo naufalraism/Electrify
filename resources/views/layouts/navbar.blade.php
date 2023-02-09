@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top px-8 py-10" style="background-color: #9eff03;">
+<nav class="navbar navbar-expand-lg fixed-top px-8 py-10" style="background-color: #D0EA2C;">
    <div class="container-fluid">
       <a class="navbar-brand" href="{{ route('product.index') }}">Electrify</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
