@@ -33,7 +33,10 @@
             </button>
         </div>
 
-        <h2 class="fw-bold fs-3">Recommendation</h2>
+        <div class="mt-5 d-flex justify-content-between">
+            <h2 class="fw-bold fs-3">Recommendation</h2>
+            <a href="{{ route('product.index') }}" class="fs-5">show all</a>
+        </div>
         <div class="grid-layout-5 gap-2 mb-5">
             @foreach ($products as $product)
                 <a href="{{ route('product.view', $product->id) }}" class="text-dark text-decoration-none card"
