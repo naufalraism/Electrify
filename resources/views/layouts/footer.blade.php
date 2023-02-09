@@ -1,5 +1,5 @@
-<footer class="footer text-center position-absolute vw-100">
-    <div class="text-center p-3 bg-dark text-white">
+<footer class="footer text-center ww-100">
+    <div class="text-center p-3 bg-dark text-white" style="min-height:50px;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
