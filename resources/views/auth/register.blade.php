@@ -91,7 +91,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-3">
-                    <h3 class="fs-6">Already has an account? <a href="{{ route('login.index') }}">Login here</a></h3>
+                    <h3 class="fs-6">Already has an account? <a href="{{ route('login') }}">Login here</a></h3>
                 </div>
             </form>
         </div>
