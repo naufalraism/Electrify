@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,24 +15,16 @@ class RegisterController extends Controller
       return view('auth.register');
    }
 
-   public function store(Request $request)
+   public function store(RegisterRequest $request)
    {
-      $validated = $request->validate([
-         'name' => 'required|string',
-         'gender' => 'required|in:F,M',
-         'email' => 'required|string|email|max:255',
-         'password' => 'required|string|max:255|min:8',
-         'address' => 'required|string'
-      ]);
-
       DB::beginTransaction();
       try {
          User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'address' => $validated['address'],
-            'gender' => $validated['gender']
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'address' => $request->address,
+            'gender' => $request->gender
          ]);
       } catch (\Exception $e) {
          DB::rollBack();

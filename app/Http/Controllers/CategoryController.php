@@ -12,7 +12,7 @@ class CategoryController extends Controller
         $productCategory = Product::where('category_id', $category->id)
                                     ->paginate(16);
 
-        return view('electrify-customer.categories',
+        return view('category.categories',
             compact('productCategory', 'category'));
     }
 }

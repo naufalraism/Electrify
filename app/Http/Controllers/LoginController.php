@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,14 +14,9 @@ class LoginController extends Controller
       return view('auth.login');
    }
 
-   public function authenticate(Request $request)
+   public function authenticate(LoginRequest $request)
    {
-      $credentials = $request->validate([
-         'email' => 'required|email|max:255',
-         'password' => 'required|string|min:8'
-      ]);
-
-      if (Auth::attempt($credentials)) {
+      if (Auth::attempt($request)) {
          $request->session()->regenerate();
 
          $request->session()->flash('success', 'Login successfull!');

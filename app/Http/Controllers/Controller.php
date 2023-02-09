@@ -12,10 +12,5 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function showCategories(){
-        $categoriesData = Category::all();
-
-        return view('categories', ['Categories_data' => $categoriesData]);
-    }
 
 }

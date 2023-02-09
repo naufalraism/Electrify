@@ -13,12 +13,12 @@ class ProductController extends Controller
         $products = Product::paginate(12);
         $categories = Category::all();
 
-        return view('electrify-customer.all-product.index', compact('products', 'categories'));
+        return view('all-product.index', compact('products', 'categories'));
     }
 
     public function viewDetail($id) {
         $products = Product::find($id);
-        return view('electrify-customer.all-product.product-details', ['product'=> $products]);
+        return view('all-product.product-details', ['product'=> $products]);
     }
 
     public function search(Request $request){

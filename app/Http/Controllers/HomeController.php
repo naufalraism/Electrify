@@ -11,6 +11,6 @@ class HomeController extends Controller
     {
         $products = Product::paginate(4);
 
-        return view('electrify-customer.home', compact('products'));
+        return view('home', compact('products'));
     }
 }

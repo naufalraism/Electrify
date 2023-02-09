@@ -1,4 +1,4 @@
-<footer class="footer text-center position-absolute vw-100 bottom-0">
+<footer class="footer text-center position-absolute vw-100">
     <div class="text-center p-3 bg-dark text-white">
         <div class="container">
             <div class="row">
