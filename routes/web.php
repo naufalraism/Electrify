@@ -18,13 +18,10 @@ use App\Http\Controllers\RegisterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+Route::get('/', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductController::class, 'viewDetail'])->name('product.view');
 Route::get('/search-result', [ProductController::class, 'search'])->name('product.search');
-
+Route::get('/category/{category}', [ProductController::class, 'searchByCategory'])->name('product.category');
 
 // Route::get('/about-us', function () {
 //     return view('about-us');
@@ -45,5 +42,3 @@ Route::middleware('auth')->group(function() {
 Route::fallback(function(){
     return redirect('/');
 });
-
-Route::get('/category/{category}', [CategoryController::class, 'viewCategory'])->name('productCategory');

@@ -10,22 +10,31 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(12);
-        $categories = Category::all();
+        $products = Product::paginate(18);
 
-        return view('all-product.index', compact('products', 'categories'));
+        return view('home', compact('products'));
     }
 
-    public function viewDetail($id) {
+    public function viewDetail($id)
+    {
         $products = Product::find($id);
-        return view('all-product.product-details', ['product'=> $products]);
+        return view('product.show', ['product' => $products]);
     }
 
-    public function search(Request $request){
-
-        $foundProduct = Product::where('name', 'like', '%'. $request->input('search_input') . '%')->paginate(6)->withQueryString();
+    public function search(Request $request)
+    {
+        $searchedProduct = $request->search_input;
+        $products = Product::where('name', 'like', '%' . $request->search_input . '%')->paginate(6)->withQueryString();
         $allProducts = Product::all();
 
-        return view('search-result', compact('foundProduct', 'allProducts'));
+        return view('product.index', compact('products', 'allProducts', 'searchedProduct'));
+    }
+
+    public function searchByCategory(Category $category)
+    {
+        $products = Product::where('category_id', $category->id)
+            ->paginate(16);
+
+        return view('product.index', compact('products', 'category'));
     }
 }

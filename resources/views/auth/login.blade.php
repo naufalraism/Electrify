@@ -56,7 +56,7 @@
                </div>
 
                <div class="d-flex justify-content-center w-100 mt-3">
-                  <h3 class="fs-6">Doesn't have an account? <a href="{{ route('register.index') }}">Register here</a></h3>
+                  <h3 class="fs-6">Don't have an account? <a href="{{ route('register.index') }}">Register here</a></h3>
                </div>
             </form>
         </div>
