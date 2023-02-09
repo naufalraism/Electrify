@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
@@ -21,11 +22,11 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::controller(ProductController::class)->name('product.')->group(function() {
-   Route::get('/','index')->name('index');
-   Route::get('/product/{id}','viewDetail')->name('view');
-   Route::get('/search-result','search')->name('search');
-   Route::get('/category/{category}','searchByCategory')->name('category');
+Route::controller(ProductController::class)->name('product.')->group(function () {
+   Route::get('/', 'index')->name('index');
+   Route::get('/product/{id}', 'viewDetail')->name('view');
+   Route::get('/search-result', 'search')->name('search');
+   Route::get('/category/{category}', 'searchByCategory')->name('category');
 });
 
 Route::middleware('guest')->group(function () {
@@ -42,6 +43,13 @@ Route::middleware('auth')->group(function () {
    Route::prefix('/profile')->controller(ProfileController::class)->name('profile.')->group(function () {
       Route::get('/', 'edit')->name('edit');
       Route::patch('/{user}', 'update')->name('update');
+   });
+
+   Route::controller(CartController::class)->group(function () {
+      Route::get('/customer/cart', 'cartPage')->name('cartPage');
+      Route::post('/customer/addcart/{product}', 'addToCart')->name('addToCart');
+      Route::get('/checkout', 'checkout')->name('checkout');
+      Route::delete('/delete-cart/{product}', 'deleteCart')->name('deleteCart');
    });
 
    Route::middleware('role:admin')->controller(AdminProductController::class)->prefix('admin')->name('admin.product.')->group(function () {

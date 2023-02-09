@@ -63,8 +63,7 @@
                <div class="card-body p-3">
                   <div class="mb-3">
                      <h2 class="card-title fs-5" style="font-weight: 400">{{ $product->name }}</h2>
-                     <h3 class="fs-5" style="font-weight: 500;">Rp.
-                        {{ number_format($product->price, 0, ',', '.') }}</h3>
+                     <h3 class="fs-5" style="font-weight: 500;">Rp{{ number_format($product->price, 0, ',', '.') }}</h3>
                      <div class="d-flex align-items-center gap-1 mb-1">
                         <i class="fas fa-cubes"></i>
                         <p class="m-0">{{ $product->stock }} stock(s) available</p>
