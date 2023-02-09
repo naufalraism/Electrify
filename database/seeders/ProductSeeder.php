@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is Asus Zenbook Laptop",
                     "stock" => 12,
                     "sold" => 122,
-                    "image" => 'images/asus-zenbook-laptop.jpg',
+                    "image" => 'images/product/asus-zenbook-laptop.jpg',
                     "price" => 14000000
                 ],
                 [
@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is Samsung Galaxy Book2 Pro 360",
                     "stock" => 120,
                     "sold" => 60,
-                    "image" => 'images/Samsung-Galaxy-Book2-Pro-360.jpg',
+                    "image" => 'images/product/Samsung-Galaxy-Book2-Pro-360.jpg',
                     "price" => 23000000
                 ],
                 [
@@ -43,7 +43,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is Samsung Galaxy Tab S6 Lite",
                     "stock" => 15,
                     "sold" => 12,
-                    "image" => 'images/Samsung-Galaxy-Tab-S6-Lite.jpg',
+                    "image" => 'images/product/Samsung-Galaxy-Tab-S6-Lite.jpg',
                     "price" => 18000000
                 ],
                 [
@@ -53,7 +53,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is Logitech MX Master",
                     "stock" => 512,
                     "sold" => 200,
-                    "image" =>'images/Logitech_MX_Master_3.png',
+                    "image" =>'images/product/Logitech_MX_Master_3.png',
                     "price" => 160000
                 ],
                 [
@@ -63,7 +63,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is MacBook Pro 14",
                     "stock" => 120,
                     "sold" => 60,
-                    "image" =>'images/MacBook-Pro-14-Laptop.jpg',
+                    "image" =>'images/product/MacBook-Pro-14-Laptop.jpg',
                     "price" => 15000000
                 ],
                 [
@@ -73,7 +73,7 @@ class ProductSeeder extends Seeder
                     "description" => "This is Huawei MatePad Pro",
                     "stock" => 120,
                     "sold" => 60,
-                    "image" =>'images/Huawei-MatePad-Pro.jpg',
+                    "image" =>'images/product/Huawei-MatePad-Pro.jpg',
                     "price" => 12000000
                 ],
             ]

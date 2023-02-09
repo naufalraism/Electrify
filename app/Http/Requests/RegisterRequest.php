@@ -16,9 +16,11 @@ class RegisterRequest extends FormRequest
       return [
          'name' => 'required|string',
          'gender' => 'required|in:F,M',
-         'email' => 'required|string|email|max:255',
+         'email' => 'required|string|email|max:255|unique:users,email',
          'password' => 'required|string|max:255|min:8',
-         'address' => 'required|string'
+         'address' => 'required|string',
+         'phone_number' => 'required|max:12',
+         'profile_picture' => 'required|image'
       ];
    }
 }

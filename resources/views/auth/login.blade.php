@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'Register Account')
+@section('title', 'Login')
 
 @section('content')
    <div class="container my-5 px-5">
@@ -27,28 +27,14 @@
             <div class="form-group mb-3 row">
                <label for="email" class="form-label required">Email</label>
                <div>
-                  <input type="text" name="email" id="email"
-                     class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
-
-                  @error('email')
-                     <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                     </span>
-                  @enderror
+                  <input type="text" name="email" id="email" class="form-control" value="{{ old('email') }}">
                </div>
             </div>
 
             <div class="form-group mb-3 row">
                <label for="password" class="form-label required">Password</label>
                <div>
-                  <input type="password" name="password" id="password"
-                     class="form-control @error('password') is-invalid @enderror">
-
-                  @error('password')
-                     <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                     </span>
-                  @enderror
+                  <input type="password" name="password" id="password" class="form-control">
                </div>
             </div>
 

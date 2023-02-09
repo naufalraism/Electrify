@@ -8,21 +8,15 @@
             <h1 class="fw-bold fs-3">REGISTER</h1>
          </div>
 
-         <form method="POST" action="{{ route('register.store') }}" class="px-4">
+         <form method="POST" action="{{ route('register.store') }}" class="px-4" enctype="multipart/form-data">
             @csrf
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group mb-3 row">
-                     <label for="name" class="form-label required">Nama</label>
+                     <label for="name" class="form-label required">Name</label>
                      <div>
                         <input type="text" name="name" id="name"
-                           class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
-
-                        @error('name')
-                           <span class="invalid-feedback" role="alert">
-                              {{ $message }}
-                           </span>
-                        @enderror
+                           class="form-control" value="{{ old('name') }}">
                      </div>
                   </div>
                </div>
@@ -32,17 +26,31 @@
                      <label for="gender" class="form-label required">Gender</label>
                      <div>
                         <select name="gender" id="gender" aria-label="Default select example"
-                           class="form-select @error('gender') is-invalid @enderror">
+                           class="form-select">
                            <option value="" hidden></option>
                            <option value="M">Male</option>
                            <option value="F">Female</option>
                         </select>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-                        @error('gender')
-                           <span class="invalid-feedback" role="alert">
-                              {{ $message }}
-                           </span>
-                        @enderror
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group mb-3 row">
+                     <label for="phone_number" class="form-label required">Phone Number</label>
+                     <div>
+                        <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ old('phone_number') }}">
+                     </div>
+                  </div>
+               </div>
+               
+               <div class="col-md-6">
+                  <div class="form-group mb-3 row">
+                     <label for="profile_picture" class="form-label required">Profile Picture</label>
+                     <div>
+                        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
                      </div>
                   </div>
                </div>
@@ -52,12 +60,7 @@
                <label for="email" class="form-label required">Email</label>
                <div>
                   <input type="text" name="email" id="email"
-                     class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
-                  @error('email')
-                     <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                     </span>
-                  @enderror
+                     class="form-control" value="{{ old('email') }}">
                </div>
             </div>
 
@@ -65,19 +68,14 @@
                <label for="password" class="form-label required">Password</label>
                <div>
                   <input type="password" name="password" id="password"
-                     class="form-control @error('password') is-invalid @enderror">
-                  @error('password')
-                     <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                     </span>
-                  @enderror
+                     class="form-control">
                </div>
             </div>
 
             <div class="form-group mb-3 row">
                <label for="address" class="form-label required">Address</label>
                <div>
-                  <textarea name="address" id="address" rows="3" class="form-control @error('address') is-invalid @enderror">{{ old('address') }}</textarea>
+                  <textarea name="address" id="address" rows="3" class="form-control">{{ old('address') }}</textarea>
                   @error('address')
                      <span class="invalid-feedback" role="alert">
                         {{ $message }}

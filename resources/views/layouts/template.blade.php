@@ -8,6 +8,7 @@
       @yield('content')
    </div>
    @include('layouts.footer')
+   @include('layouts.jssection')
    @yield('js-extra')
 </body>
 

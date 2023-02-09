@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,6 @@ class LoginController extends Controller
    {
       if (Auth::attempt($request->safe()->toArray())) {
          $request->session()->regenerate();
-         $request->session()->put('auth');
 
          $request->session()->flash('success', 'Login successfull!');
          return redirect()->intended(route('product.index'));

@@ -32,9 +32,6 @@
                      @endforeach
                   </ul>
                </li>
-               {{-- <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
-                    </li> --}}
             </ul>
 
             <form action="{{ route('product.search', @$product->name) }}" class="d-flex" role="search" method="GET">
@@ -47,8 +44,7 @@
             @auth
                <ul class="navbar-nav me-right mb-2 mb-lg-0">
                   <li class="nav-item dropdown">
-                     <a class="nav-link
-                                dropdown-toggle" href="#" role="button"
+                     <a class="nav-link dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         {{ auth()->user()->name }}
                      </a>
