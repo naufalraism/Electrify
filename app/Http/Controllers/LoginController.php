@@ -15,12 +15,12 @@ class LoginController extends Controller
 
    public function authenticate(LoginRequest $request)
    {
-      if (Auth::attempt($request)) {
+      if (Auth::attempt($request->safe()->toArray())) {
          $request->session()->regenerate();
          $request->session()->put('auth');
 
          $request->session()->flash('success', 'Login successfull!');
-         return redirect()->intended(route('home'));
+         return redirect()->intended(route('product.index'));
       }
 
       return back()->with('loginError', 'Wrong Email/Password. Login Failed!');

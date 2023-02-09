@@ -12,7 +12,7 @@ class ProductController extends Controller
    {
       $products = Product::paginate(18);
 
-      return view('home', compact('products'));
+      return view('product.index', compact('products'));
    }
 
    public function viewDetail($id)

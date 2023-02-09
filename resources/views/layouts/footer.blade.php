@@ -23,11 +23,8 @@
 
             </div>
          </div>
+         <hr>
+         <p classs="copyright">©Electrify {{ now()->year }}</p>
       </div>
-      <hr>
-      <p classs="copyright">©Electrify 2022</p>
-
-   </div>
-
    </div>
 </footer>
