@@ -14,20 +14,22 @@
                </li>
 
                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button"
-                     data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                     aria-expanded="false">
                      Categories
                   </a>
                   <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="{{ route('product.category', '1') }}">Laptop</a></li>
-                     <li>
-                        <hr class="dropdown-divider">
-                     </li>
-                     <li><a class="dropdown-item" href="{{ route('product.category', '2') }}">Tablet</a></li>
-                     <li>
-                        <hr class="dropdown-divider">
-                     </li>
-                     <li><a class="dropdown-item" href="{{ route('product.category', '3') }}">Mouse</a></li>
+                     @foreach ($categories as $category)
+                        <li>
+                           <a class="dropdown-item"
+                              href="{{ route('product.category', $category->id) }}">{{ $category->name }}</a>
+                        </li>
+                        @if (!$loop->last)
+                           <li>
+                              <hr class="dropdown-divider">
+                           </li>
+                        @endif
+                     @endforeach
                   </ul>
                </li>
                {{-- <li class="nav-item">
