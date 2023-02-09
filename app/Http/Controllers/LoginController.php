@@ -17,19 +17,13 @@ class LoginController extends Controller
    {
       if (Auth::attempt($request)) {
          $request->session()->regenerate();
+         $request->session()->put('auth');
 
          $request->session()->flash('success', 'Login successfull!');
          return redirect()->intended(route('home'));
       }
 
-      return back()->with('loginError', 'Login Failed');
-   }
-
-   public function addSessionAuth($request)
-   {
-      $request->session()->regenerate();
-
-      $request->session()->put('auth');
+      return back()->with('loginError', 'Wrong Email/Password. Login Failed!');
    }
 
    public function logout(Request $request)
