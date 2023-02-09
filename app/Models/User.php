@@ -14,7 +14,12 @@ class User extends Authenticatable
 
    public function cart()
    {
-      $this->hasMany(Cart::class);
+      return $this->hasMany(Cart::class);
+   }
+
+   public function role()
+   {
+      return $this->belongsTo(Role::class);
    }
 
    public function scopeHasRole($query, $role)
