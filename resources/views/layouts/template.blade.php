@@ -8,7 +8,7 @@
         @yield('content')
     </div>
     @include('layouts.footer')
+    @yield('js-extra')
 </body>
-@yield('js-extra')
 
 </html>
