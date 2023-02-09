@@ -19,6 +19,6 @@ class User extends Authenticatable
 
    public function scopeHasRole($query, $role)
    {
-      return !empty($query->where('account_id', $this->account_id)->whereRelation('role', 'role_name', $role)->first());
+      return !empty($query->where('id', $this->id)->whereRelation('role', 'name', $role)->first());
    }
 }

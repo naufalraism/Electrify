@@ -38,6 +38,13 @@
                   @endforeach
                </ul>
             </li>
+
+            @if(@auth()->user()->role_id == 2)
+            <li class="nav-item">
+               <a class="nav-link {{ Route::is('admin.product.index') ? 'active' : '' }}"
+                  href="{{ route('admin.product.index') }}">Product Management</a>
+            </li>
+            @endif
          </ul>
 
          <form action="{{ route('product.search', @$product->name) }}" class="d-flex" role="search" method="GET">

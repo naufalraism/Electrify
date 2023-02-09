@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
          ],
          [
             'id' => 2,
-            'role_id' => 1,
+            'role_id' => 2,
             'name' => 'Test Admin',
             'phone_number' => '081212452672',
             'profile_picture' => '/images/user/profile2.jpg',
